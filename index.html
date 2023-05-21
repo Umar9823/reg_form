@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Registration Form</title>
+  <style>
+    h1{
+        text-align: center;
+        color: white;
+    }
+    .container {
+      max-width: 400px;
+      margin: 0 auto;
+      padding: 20px;
+      border: 2px solid #ccc;
+      background-color: rgb(216, 156, 66);
+      border-radius: 10px;
+    }
+
+    .form-group {
+      margin-bottom: 10px;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: 300;
+      color: white;
+    }
+
+    .form-group input {
+      width: 100%;
+      padding: 5px;
+      background-color: #c2f7fd;
+      border: 2px solid #c2f7fd;
+    }
+
+    .submit-btn {
+      width: 100%;
+      padding: 10px;
+      margin-left: 10px;
+      background-color: #48b2c0;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      font-weight: 600;
+      border-radius: 7px;
+    }
+    .submit-btn:hover{
+        background-color: black;
+        color: white;
+    }
+    .registration-details {
+      margin-top: 20px;
+      color: white;
+      font-weight: 500;
+    }
+
+    .registration-details p {
+      margin-bottom: 5px;
+      color: white;
+      font-weight: 500;
+    }
+  </style>
+  <script>
+    function handleSubmit(event) {
+      event.preventDefault();
+
+      var firstName = document.getElementById('firstName').value;
+      var lastName = document.getElementById('lastName').value;
+      var email = document.getElementById('email').value;
+
+      document.getElementById('registrationForm').style.display = 'none';
+      document.getElementById('registrationDetails').style.display = 'block';
+
+      document.getElementById('firstNameDisplay').textContent = firstName;
+      document.getElementById('lastNameDisplay').textContent = lastName;
+      document.getElementById('emailDisplay').textContent = email;
+    }
+  </script>
+</head>
+<body>
+  <div class="container">
+    <h1>Registration Form</h1>
+    <form id="registrationForm" onsubmit="handleSubmit(event)">
+      <div class="form-group">
+        <label for="firstName">First Name:</label>
+        <input type="text" id="firstName" required>
+      </div>
+      <div class="form-group">
+        <label for="lastName">Last Name:</label>
+        <input type="text" id="lastName" required>
+      </div>
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="email" id="email" required>
+      </div>
+      <button type="submit" class="submit-btn">Submit</button>
+    </form>
+    <div id="registrationDetails" class="registration-details" style="display: none;">
+      <h2>Thank you for registering!</h2>
+      <p>First Name: <span id="firstNameDisplay"></span></p>
+      <p>Last Name: <span id="lastNameDisplay"></span></p>
+      <p>Email: <span id="emailDisplay"></span></p>
+    </div>
+  </div>
+</body>
+</html>
